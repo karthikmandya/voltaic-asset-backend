@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ExcelReader {
     public List<TransformerReadingDetails> readDataFromExcel() {
-        String filePath = "C:\\Users\\TKR2KOR\\Desktop\\proposal\\itpo\\report.xlsx";
+        String filePath = "resources/report.xlsx";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy'T'HH:mm:ss");
         List<TransformerReadingDetails> details = new ArrayList<>();
         try (FileInputStream fis = new FileInputStream(filePath);
