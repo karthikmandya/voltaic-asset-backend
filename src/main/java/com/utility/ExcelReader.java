@@ -6,6 +6,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class ExcelReader {
         String filePath = "resources/report.xlsx";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy'T'HH:mm:ss");
         List<TransformerReadingDetails> details = new ArrayList<>();
-        try (FileInputStream fis = new FileInputStream(filePath);
+        try (InputStream fis =  getClass().getClassLoader().getResourceAsStream("report.xlsx");
              Workbook workbook = new XSSFWorkbook(fis)) {
             Sheet sheet = workbook.getSheetAt(0);
             int rowNumber =0;
